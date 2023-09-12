@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+<!--        body-->
+<!--        {background-image:url({% static 'img/hello.jpg' %});-->
+<!--        background-size:cover;-->
+<!--        font-size:30px-->
+<!--        }-->
+body
+{
+    background-color:#92B7E1;
+}
+.logo
+{
+    text-align:right
+}
+
+</style>
+
+    {% if user.is_authenticated %}
+        <h1 style="color:black;">Hello {{user.username}}</h1>
+        <div class="logo">
+        <a href="{% url 'school:logout' %}" class="btn btn-primary" >Logout</a>
+        </div>
+        <div>
+            Welcome to Victory college.<br>
+            Please fill the below form to place your order<br>
+        </div>
+
+             <a href="{% url 'school:form_order' %}" class="btn btn-primary">Order</a>
+
+     {% endif %}
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+        body
+        {background-image:url({% static 'img/form.jpg' %});
+        background-size:cover;
+        }
+        .logo
+{
+    text-align:right
+}
+a.link
+{
+    float:right
+    }
+
+ </style>
+  {% if user.is_authenticated %}
+        <h1 style="color:black;">Hello {{user.username}}</h1>
+        <div class="logo">
+        <a href="{% url 'school:logout' %}" class="btn btn-primary" >Logout</a>
+        </div>
+        <form method="POST">
+        {% csrf_token%}
+        {{f1.as_p}}
+        {% include 'dropdown.html' %}
+            <br>
+        {% include 'purpose.html' %}
+        <button class="btn btn-primary" >Submit</button>
+         {% if purpose == 'null' %}
+
+            <div class="alert alert-dismissible alert-success">
+            <strong>Please select your purpose </strong>
+
+        <a href="/">Return to home page</a>
+                {% elif purpose %}
+                <div class="alert alert-dismissible alert-success">
+                <strong>{{purpose}} confirmed</strong>
+
+                <a class='link' href="/" >Return to home page</a>
+
+
+    </div>
+
+</form>
+{% endif %}
+{% endif %}
+{% endblock %}

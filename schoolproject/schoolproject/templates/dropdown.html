@@ -1,0 +1,56 @@
+<script>
+let data = [{
+    item: 'Computer Science',
+    subitems: ['Software Engineering', 'Artificial Intelligence', 'Machine Learning', 'NLP','Data Mining']
+  },
+  {
+    item: 'Social Science',
+    subitems: ['Polictics', 'Humanity']
+  },
+  {
+    item: 'Maths',
+    subitems: ['Statics', 'Discrete']
+  },
+  {
+    item: 'English',
+    subitems: ['Literature', 'Language']
+  },
+  {
+    item: 'Commerce',
+    subitems: ['Accountancy', 'Bussiness']
+  },
+];
+
+
+window.onload = function() {
+  var itemSel = document.getElementById("first");
+  var subitemSel = document.getElementById("second");
+
+  for (var x in data) {
+    itemSel.options[itemSel.options.length] = new Option(data[x].item, x);
+  }
+  itemSel.onchange = function() {
+    //empty
+    subitemSel.length = 1;
+    //display correct values
+    for (var y of data[this.value].subitems) {
+      subitemSel.options[subitemSel.options.length] = new Option(y, y);
+    }
+  }
+}
+</script>
+<main>
+<div>
+
+    <select id="first" name="first">
+      <option value="" selected="selected">Please select Department</option>
+    </select>
+  </div>
+    <br>
+  <div>
+
+    <select id="second" name="second">
+      <option value="" selected="selected">Please select course</option>
+    </select>
+  </div>
+    </main>

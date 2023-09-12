@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+        body
+        {background-image:url({% static 'img/reg.jpg' %});
+        background-size:cover;
+        }
+</style>
+
+
+<div class='f' style="margin-left:400px;">
+<h1 style="margin-left:50px;">You may Register Here..</h1>
+<form action=" " method="post" style="margin-left:130px;">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Enter User name"><br><br>
+
+    <input type="password" name="password" placeholder="Enter Password"><br><br>
+    <input type="password" name="cpassword" placeholder="Confirm Password"><br><br>
+    <br>
+    <button class="btn btn-secondary" href=" {% url 'school:register' %}">Submit</button>
+    <br>
+
+</form>
+
+    {% for msg in messages %}
+    <h2>{{msg}}.Please enter again!</h2>
+    {% endfor %}
+    </div>
+{% endblock %}

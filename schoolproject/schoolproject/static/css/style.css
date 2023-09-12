@@ -1,0 +1,20 @@
+.my_title{
+    font-size: 24px;
+    background-color: rgba(255, 255, 255, 1);
+    color:#0A94DB;;
+}
+.link{
+    text-decoration:none;
+    color:white;
+
+
+}
+
+
+
+.pos{
+
+ position: absolute;
+  top: 200px;
+  left:400px;
+}
